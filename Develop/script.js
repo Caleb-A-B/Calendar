@@ -1,4 +1,11 @@
-  ````// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
+ 
+ //setting date and time
+ var today = moment().format("dddd, MMMM Do YYYY")
+
+var now = moment().format("H A")
+
+$("#currrentDay").text(today)
+ ````// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
