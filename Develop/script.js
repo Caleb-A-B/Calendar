@@ -71,6 +71,25 @@ function colorRows(time) {
     return "present"
   }
 }
+
+//saving stuff and events
+$(".saveBtn").on("click", function(){
+  var blockID = parseInt(
+    $(this)
+        .closest(".time-block")
+        .attr("id")
+  );
+  var userEntry = $.trim(
+      $(this)
+          .parent()
+          .siblings("textarea")
+          .val()
+  );
+  planWorkday[blockID].event = userEntry
+
+  //local storage
+  localStorage.setItem("workDay", JSON.stringify(planWorkday))
+})
  ````// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
