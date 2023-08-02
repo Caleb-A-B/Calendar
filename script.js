@@ -42,7 +42,7 @@ $("#currentDay").text(today)
 //rows/ blocs
 planWorkday.forEach(function(timeBlock, index) {
   var timeLabel = timeBlock.time
-  var blockColor = colorRow(timeLabel)
+  var blockColor = colorRows(timeLabel)
   var row =
         '<div class="time-block" id="' +
         index +
@@ -55,7 +55,7 @@ planWorkday.forEach(function(timeBlock, index) {
         '</textarea><div class="col-sm col-lg-1 input-group-append"><button class="saveBtn btn-block" type="submit"><i class="fas fa-save"></i></button></div></div></div'
 
         //rows and containers
-        $(".container").append(row)
+        $(".container-lg").append(row)
 })
 
 //coloring da rows
