@@ -28,6 +28,37 @@ var planWorkday = [
       event: ""}
   
 ];
+
+//local area loop?
+
+var workEvents = JSON.parse(localStorage.getItem("workDay"))
+if (workEvents) {
+  planWorkDay = workEvents;
+}
+
+//this day
+$("#currentDay").text(today)
+
+//rows/ blocs
+planWorkday.forEach(function(timeBlock, index) {
+  var timeLabel = timeBlock.time
+  var blockColor = colorRow(timeLabel)
+  var row =
+        '<div class="time-block" id="' +
+        index +
+        '"><div class ="row no-gutters input-group"><div class="col-sm col-lg-1 input-group-prepend hour justify-content-sm-end pr-3 pt-3">' +
+        timeLabel +
+        '</div><textarea class="form-control ' +
+        blockColor +
+        '">' +
+        timeBlock.event +
+        '</textarea><div class="col-sm col-lg-1 input-group-append"><button class="saveBtn btn-block" type="submit"><i class="fas fa-save"></i></button></div></div></div'
+
+        //rows and containers
+        $(".container").append(row)
+})
+
+//coloring da rows
  ````// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
