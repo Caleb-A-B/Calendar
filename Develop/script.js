@@ -59,6 +59,18 @@ planWorkday.forEach(function(timeBlock, index) {
 })
 
 //coloring da rows
+
+function colorRows(time) {
+  var planNow = moment(now, "H A")
+  var planEntry = moment(time, "H A")
+  if (planNow.isBefore(planEntry) === true) {
+      return "future"
+  } else if (planNow.isAfter(planEntry) === true) {
+      return "past"
+  } else {
+    return "present"
+  }
+}
  ````// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
